@@ -11,7 +11,7 @@ app.use(express.json());
 
 const uri = "mongodb+srv://sunshine:Ca2PnflFksuwZ5eR@cluster0.xmwvo9h.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-// 
+
 async function run() {
     try {
         await client.connect();
