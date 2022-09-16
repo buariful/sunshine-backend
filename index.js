@@ -12,14 +12,17 @@ app.use(express.json());
 const uri = "mongodb+srv://sunshine:Ca2PnflFksuwZ5eR@cluster0.xmwvo9h.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
+
 async function run() {
     try {
         await client.connect();
         const productsCollection = client.db('sunshine').collection('products')
+        const userCollection = client.db('moonknight').collection('users')
 
-        app.get('/products', async (req, res) => {
+
+        app.get('/users', async (req, res) => {
             const query = {};
-            const cursor = productsCollection.find(query);
+            const cursor = userCollection.find(query);
             const products = await cursor.toArray();
             res.send(products)
         })
