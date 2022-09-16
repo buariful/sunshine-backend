@@ -16,7 +16,6 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function run() {
     try {
         await client.connect();
-        const productsCollection = client.db('sunshine').collection('products')
         const userCollection = client.db('moonknight').collection('users')
 
 
@@ -35,7 +34,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Hi dating app is running .')
 })
 
 app.listen(port, () => {
